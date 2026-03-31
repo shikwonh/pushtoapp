@@ -44,9 +44,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-hei
   border-bottom:1px solid var(--border);
   padding:0 32px;height:60px;
   display:flex;align-items:center;justify-content:space-between;
-  position:sticky;top:0;z-index:300;
+  position:sticky;top:0;z-index:999;
 }
-.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:18px;letter-spacing:-0.5px;color:var(--white)}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:18px;letter-spacing:-0.5px;color:var(--white); cursor:pointer;}
 .logo-icon{width:34px;height:34px;flex-shrink:0}
 .logo-by{font-family:var(--font-mono);font-size:10px;color:var(--muted);font-weight:400;margin-left:4px;letter-spacing:0.2px}
 .hdr-badge{
@@ -68,10 +68,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-hei
   padding:1px 6px;border-radius:8px;min-width:18px;text-align:center;
 }
 
-/* ── SUB-PAGES (My Apps & Update Manager) ── */
-.sub-page{display:none;min-height:100vh;background:var(--bg)}
-.sub-page.show{display:block;animation:fadeUp 0.25s ease}
-.page-layout{max-width:940px;margin:0 auto;padding:40px 24px 100px}
+/* ── SUB-PAGES ── */
+.sub-page{display:none;min-height:100vh;background:var(--bg);animation:fadeUp 0.25s ease}
+.page-layout{max-width:940px;margin:0 auto;padding:40px 24px 100px; position:relative; z-index:1;}
 .page-hero{margin-bottom:32px}
 .page-hero-title{font-size:26px;font-weight:700;letter-spacing:-0.5px;color:var(--white);font-family:var(--font-display)}
 .page-hero-sub{font-size:13px;color:var(--sub);margin-top:5px}
@@ -297,16 +296,14 @@ textarea{resize:vertical;min-height:68px;line-height:1.6}
   border-radius:8px;color:#fff;font-family:var(--font-body);
   font-size:13px;font-weight:600;cursor:pointer;transition:all 0.2s;
   display:flex;align-items:center;gap:8px;
-  box-shadow:none;
 }
 .btn-next:hover{background:var(--hi2);transform:translateY(-1px)}
-.btn-next:active{transform:none;box-shadow:none}
+.btn-next:active{transform:none;}
 .btn-gen{
   width:100%;padding:14px;
   background:var(--hi);border:none;border-radius:10px;
   color:#fff;font-family:var(--font-body);font-size:15px;font-weight:600;
   cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:9px;justify-content:center;
-  box-shadow:none;
 }
 .btn-gen:hover{background:var(--hi2);transform:translateY(-1px)}
 .btn-gen:disabled{opacity:0.3;cursor:not-allowed;transform:none}
@@ -369,8 +366,6 @@ textarea{resize:vertical;min-height:68px;line-height:1.6}
 .sli-h{font-size:12px;font-weight:700;color:var(--white);margin-bottom:3px;font-family:var(--font-display)}
 .sli-p{font-size:11px;color:var(--sub);line-height:1.7}
 .sli-p code{background:var(--surface);border:1px solid var(--border);padding:1px 5px;border-radius:3px;font-family:var(--font-mono);font-size:10px;color:var(--accent)}
-.sli-p a{color:var(--accent)}
-.sli-box{background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:8px 11px;margin-top:6px;font-family:var(--font-mono);font-size:10px;color:var(--sub);line-height:1.6}
 
 /* ── PHONE PREVIEW ── */
 .preview-col{position:relative}
@@ -389,9 +384,9 @@ textarea{resize:vertical;min-height:68px;line-height:1.6}
   box-shadow:inset 0 0 0 1px rgba(255,255,255,0.06),0 32px 80px rgba(0,0,0,0.85),0 0 0 1px rgba(0,0,0,0.5);
   position:relative;
 }
-.phone-shell::before{content:'';position:absolute;right:-4px;top:110px;width:4px;height:44px;background:#242424;border-radius:0 3px 3px 0;box-shadow:inset -1px 0 0 rgba(255,255,255,0.05);}
-.phone-shell::after{content:'';position:absolute;left:-4px;top:90px;width:4px;height:32px;background:#242424;border-radius:3px 0 0 3px;box-shadow:inset 1px 0 0 rgba(255,255,255,0.05);}
-.phone-vol2{position:absolute;left:-4px;top:132px;width:4px;height:32px;background:#242424;border-radius:3px 0 0 3px;box-shadow:inset 1px 0 0 rgba(255,255,255,0.05);}
+.phone-shell::before{content:'';position:absolute;right:-4px;top:110px;width:4px;height:44px;background:#242424;border-radius:0 3px 3px 0;}
+.phone-shell::after{content:'';position:absolute;left:-4px;top:90px;width:4px;height:32px;background:#242424;border-radius:3px 0 0 3px;}
+.phone-vol2{position:absolute;left:-4px;top:132px;width:4px;height:32px;background:#242424;border-radius:3px 0 0 3px;}
 .phone-notch{position:absolute;top:18px;left:50%;transform:translateX(-50%);width:52px;height:6px;background:#0f0f0f;border-radius:4px;z-index:10;}
 .phone-cam{position:absolute;top:19px;right:71px;width:6px;height:6px;background:#111;border-radius:50%;z-index:10;box-shadow:inset 0 0 0 1.5px #0a0a0a, 0 0 0 1px #1f1f1f;}
 .phone-screen{width:100%;height:100%;border-radius:30px;overflow:hidden;background:#0f0f0f;position:relative;transition:background 0.5s;}
@@ -420,7 +415,7 @@ textarea{resize:vertical;min-height:68px;line-height:1.6}
 .home-icon-img{width:64px;height:64px;border-radius:16px;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.1);}
 .home-icon-img img{width:100%;height:100%;object-fit:cover;display:none}
 .home-icon-img svg{flex-shrink:0}
-.home-icon-lbl{font-size:10px;font-family:var(--font-body);font-weight:600;color:rgba(255,255,255,0.95);text-align:center;max-width:72px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-shadow:0 1px 4px rgba(0,0,0,0.8);}
+.home-icon-lbl{font-size:10px;font-family:var(--font-body);font-weight:600;color:rgba(255,255,255,0.95);text-align:center;max-width:72px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 
 .web-view{position:absolute;inset:0;z-index:15;display:flex;flex-direction:column;background:#f5f5f5;border-radius:30px;overflow:hidden;opacity:0;pointer-events:none;transition:opacity 0.35s;}
 .web-view.show{opacity:1;pointer-events:all}
@@ -442,7 +437,6 @@ textarea{resize:vertical;min-height:68px;line-height:1.6}
 
 /* ── HOMEPAGE ── */
 #homePage{min-height:100vh;background:var(--bg);display:flex;flex-direction:column;}
-#homePage.hidden{display:none}
 .hp-nav{height:56px;padding:0 28px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);background:var(--bg);}
 .hp-hero{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:90px 24px 70px;position:relative;overflow:hidden;}
 .hp-badge{display:inline-flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--border-hi);border-radius:20px;padding:5px 14px;font-size:11px;font-family:var(--font-mono);color:var(--sub);letter-spacing:0.5px;margin-bottom:28px;}
@@ -460,25 +454,22 @@ textarea{resize:vertical;min-height:68px;line-height:1.6}
 .hp-stat{text-align:center}
 .hp-stat-num{font-size:30px;font-weight:800;color:var(--white);letter-spacing:-1.5px;font-family:var(--font-display)}
 .hp-stat-lbl{font-size:10px;color:var(--muted);margin-top:3px;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:1.5px}
-
 .hp-section{padding:80px 24px;max-width:960px;margin:0 auto;width:100%}
 .hp-section-eyebrow{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:3px;color:var(--muted);text-align:center;margin-bottom:10px;}
 .hp-section-title{font-size:30px;font-weight:800;color:var(--white);text-align:center;letter-spacing:-0.7px;margin-bottom:8px;}
 .hp-section-sub{font-size:13px;color:var(--sub);text-align:center;margin-bottom:44px;line-height:1.7;max-width:440px;margin-left:auto;margin-right:auto;}
 .hp-steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:2px;background:var(--border);border-radius:12px;overflow:hidden;border:1px solid var(--border);}
-.hp-step-card{background:var(--card);padding:26px 22px;display:flex;flex-direction:column;gap:12px;position:relative;}
+.hp-step-card{background:var(--card);padding:26px 22px;display:flex;flex-direction:column;gap:12px;}
 .hp-step-num{width:30px;height:30px;border-radius:7px;background:var(--surface);border:1px solid var(--border-hi);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--sub);flex-shrink:0;}
 .hp-step-icon{font-size:24px;line-height:1}
 .hp-step-title{font-size:13px;font-weight:700;color:var(--white);line-height:1.3}
 .hp-step-desc{font-size:11.5px;color:var(--sub);line-height:1.7}
 .hp-step-tag{display:inline-block;margin-top:2px;font-size:9px;font-family:var(--font-mono);padding:2px 7px;border-radius:4px;background:var(--surface);border:1px solid var(--border);color:var(--muted);}
 .hp-feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;}
-.hp-feat-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;display:flex;gap:12px;align-items:flex-start;transition:border-color 0.15s,background 0.15s;}
-.hp-feat-card:hover{border-color:var(--border-hi);background:var(--card2)}
+.hp-feat-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;display:flex;gap:12px;align-items:flex-start;}
 .hp-feat-em{font-size:18px;flex-shrink:0;margin-top:1px;line-height:1}
 .hp-feat-title{font-size:12px;font-weight:700;color:var(--white);margin-bottom:3px}
 .hp-feat-desc{font-size:11px;color:var(--sub);line-height:1.6}
-
 .hp-bottom-cta{background:var(--bg2);border-top:1px solid var(--border);padding:80px 24px;text-align:center;}
 .hp-bottom-cta-title{font-size:34px;font-weight:900;color:var(--white);letter-spacing:-1px;margin-bottom:12px}
 .hp-bottom-cta-sub{font-size:14px;color:var(--sub);margin-bottom:32px;line-height:1.7;max-width:420px;margin-left:auto;margin-right:auto}
@@ -487,7 +478,7 @@ textarea{resize:vertical;min-height:68px;line-height:1.6}
 </head>
 <body>
 
-<div id="homePage">
+<div id="homePage" style="display:flex;">
   <nav class="hp-nav">
     <div class="logo">
       <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="7" fill="#222"/><rect x="0.5" y="0.5" width="31" height="31" rx="6.5" stroke="#3a3a3a"/><path d="M19.5 8.5C18.05 8.5 17 9.6 17 11C17 11.55 17.2 12.05 17.5 12.45L17.85 12.85L10.6 20.1L10.2 19.8C9.85 19.55 9.45 19.4 9 19.4C7.6 19.4 6.5 20.5 6.5 21.9C6.5 23.3 7.6 24.4 9 24.4C10.4 24.4 11.5 23.3 11.5 21.9C11.5 21.45 11.35 21.05 11.1 20.7L10.8 20.3L18.05 13.05L18.45 13.4C18.8 13.7 19.3 13.9 19.8 13.9C21.2 13.9 22.3 12.8 22.3 11.4C22.3 11 22.2 10.6 22 10.3L20.55 11.75L19.4 11.85L18.65 11.1L18.75 9.95L20.2 8.5C20 8.5 19.75 8.5 19.5 8.5Z" fill="#888"/></svg>
@@ -564,8 +555,15 @@ textarea{resize:vertical;min-height:68px;line-height:1.6}
 
 <div id="builderPage" style="display:none">
   <div class="hdr">
-    <div class="logo" onclick="goHome()" style="cursor:pointer">
-      <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="7" fill="#222"/><rect x="0.5" y="0.5" width="31" height="31" rx="6.5" stroke="#3a3a3a"/><path d="M19.5 7.5C17.5 7.5 16 9 16 11C16 11.5 16.1 11.95 16.3 12.35L9.5 19.15C9.1 18.95 8.6 18.85 8.1 18.85C6.1 18.85 4.5 20.4 4.5 22.4C4.5 24.4 6.1 25.95 8.1 25.95C10.1 25.95 11.7 24.4 11.7 22.4C11.7 21.9 11.6 21.4 11.35 20.95L18.1 14.2C18.55 14.4 19.05 14.5 19.5 14.5C21.5 14.5 23 13 23 11C23 10.4 22.85 9.85 22.55 9.4L20.4 11.55L19.15 11.55L18.45 10.85L18.45 9.6L20.6 7.45C20.25 7.5 19.9 7.5 19.5 7.5Z" fill="#555"/><path d="M19.5 8.5C18.05 8.5 17 9.6 17 11C17 11.55 17.2 12.05 17.5 12.45L17.85 12.85L10.6 20.1L10.2 19.8C9.85 19.55 9.45 19.4 9 19.4C7.6 19.4 6.5 20.5 6.5 21.9C6.5 23.3 7.6 24.4 9 24.4C10.4 24.4 11.5 23.3 11.5 21.9C11.5 21.45 11.35 21.05 11.1 20.7L10.8 20.3L18.05 13.05L18.45 13.4C18.8 13.7 19.3 13.9 19.8 13.9C21.2 13.9 22.3 12.8 22.3 11.4C22.3 11 22.2 10.6 22 10.3L20.55 11.75L19.4 11.85L18.65 11.1L18.75 9.95L20.2 8.5C20 8.5 19.75 8.5 19.5 8.5Z" fill="#888"/></svg>
+    <div class="logo" onclick="showHomePage()">
+      <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="32" height="32" rx="7" fill="#222"/>
+        <rect x="0.5" y="0.5" width="31" height="31" rx="6.5" stroke="#3a3a3a"/>
+        <path d="M19.5 7.5C17.5 7.5 16 9 16 11C16 11.5 16.1 11.95 16.3 12.35L9.5 19.15C9.1 18.95 8.6 18.85 8.1 18.85C6.1 18.85 4.5 20.4 4.5 22.4C4.5 24.4 6.1 25.95 8.1 25.95C10.1 25.95 11.7 24.4 11.7 22.4C11.7 21.9 11.6 21.4 11.35 20.95L18.1 14.2C18.55 14.4 19.05 14.5 19.5 14.5C21.5 14.5 23 13 23 11C23 10.4 22.85 9.85 22.55 9.4L20.4 11.55L19.15 11.55L18.45 10.85L18.45 9.6L20.6 7.45C20.25 7.5 19.9 7.5 19.5 7.5Z" fill="#555"/>
+        <path d="M19.5 8.5C18.05 8.5 17 9.6 17 11C17 11.55 17.2 12.05 17.5 12.45L17.85 12.85L10.6 20.1L10.2 19.8C9.85 19.55 9.45 19.4 9 19.4C7.6 19.4 6.5 20.5 6.5 21.9C6.5 23.3 7.6 24.4 9 24.4C10.4 24.4 11.5 23.3 11.5 21.9C11.5 21.45 11.35 21.05 11.1 20.7L10.8 20.3L18.05 13.05L18.45 13.4C18.8 13.7 19.3 13.9 19.8 13.9C21.2 13.9 22.3 12.8 22.3 11.4C22.3 11 22.2 10.6 22 10.3L20.55 11.75L19.4 11.85L18.65 11.1L18.75 9.95L20.2 8.5C20 8.5 19.75 8.5 19.5 8.5Z" fill="#888"/>
+        <path d="M24 17L27 20L24 23" stroke="#555" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M21 17L18 20L21 23" stroke="#444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
       PushToApp<span class="logo-by">by @shikwonh</span>
     </div>
     <div style="display:flex;align-items:center;gap:10px">
@@ -607,7 +605,7 @@ textarea{resize:vertical;min-height:68px;line-height:1.6}
             </div>
             <div class="field s2" id="urlField">
               <label>Website URL <span class="req">*</span></label>
-              <input type="url" id="url" placeholder="https://yourwebsite.com" oninput="updatePkg();updatePreview()">
+              <input type="url" id="url" placeholder="https://yourwebsite.com" oninput="updatePkg();updatePreview();this.style.borderColor=''">
             </div>
             <div class="field s2" id="htmlField" style="display:none">
               <label>Upload Project Files <span class="req">*</span></label>
@@ -636,7 +634,7 @@ textarea{resize:vertical;min-height:68px;line-height:1.6}
             </div>
             <div class="field">
               <label>App Name <span class="req">*</span></label>
-              <input type="text" id="appName" placeholder="My App" oninput="updatePkg();updatePreview()">
+              <input type="text" id="appName" placeholder="My App" oninput="updatePkg();updatePreview();this.style.borderColor=''">
             </div>
             <div class="field">
               <label>Version</label>
@@ -987,9 +985,9 @@ textarea{resize:vertical;min-height:68px;line-height:1.6}
 
 <div id="myAppsPage" class="sub-page">
   <div class="hdr">
-    <div class="logo" onclick="goHome()" style="cursor:pointer">📦 PushToApp</div>
+    <div class="logo" onclick="showHomePage()" style="cursor:pointer">📦 PushToApp</div>
     <div style="display:flex;align-items:center;gap:10px">
-      <button class="hdr-nav-btn" onclick="hideMyApps()">← Back to Builder</button>
+      <button class="hdr-nav-btn" onclick="startBuilder()">← Back to Builder</button>
       <div class="hdr-badge">My Apps</div>
     </div>
   </div>
@@ -1004,9 +1002,9 @@ textarea{resize:vertical;min-height:68px;line-height:1.6}
 
 <div id="updateManagerPage" class="sub-page">
   <div class="hdr">
-    <div class="logo" onclick="goHome()" style="cursor:pointer">🔄 Update Manager</div>
+    <div class="logo" onclick="showHomePage()" style="cursor:pointer">🔄 Update Manager</div>
     <div style="display:flex;align-items:center;gap:10px">
-      <button class="hdr-nav-btn" onclick="hideUpdateManager()">← Back to Builder</button>
+      <button class="hdr-nav-btn" onclick="startBuilder()">← Back to Builder</button>
       <div class="hdr-badge">JSON Generator</div>
     </div>
   </div>
@@ -1091,48 +1089,40 @@ var htmlFileRawContent = null;
 var uploadedFiles = {}; 
 var entryHtmlFile = 'index.html'; 
 
-function startBuilder() {
+function hideAllPages() {
   document.getElementById('homePage').style.display = 'none';
+  document.getElementById('builderPage').style.display = 'none';
   document.getElementById('myAppsPage').style.display = 'none';
   document.getElementById('updateManagerPage').style.display = 'none';
+}
+
+function startBuilder() {
+  hideAllPages();
   document.getElementById('builderPage').style.display = 'block';
   window.scrollTo({top:0,behavior:'smooth'});
   updatePkg(); 
 }
+
 function showHomePage() {
+  hideAllPages();
   document.getElementById('homePage').style.display = 'flex';
-  document.getElementById('builderPage').style.display = 'none';
-  document.getElementById('myAppsPage').style.display = 'none';
-  document.getElementById('updateManagerPage').style.display = 'none';
   window.scrollTo({top:0,behavior:'smooth'});
 }
+
 function showMyApps() {
   renderApps();
-  document.getElementById('homePage').style.display = 'none';
-  document.getElementById('builderPage').style.display = 'none';
-  document.getElementById('updateManagerPage').style.display = 'none';
-  document.getElementById('myAppsPage').classList.add('show');
+  hideAllPages();
+  document.getElementById('myAppsPage').style.display = 'block';
   window.scrollTo({top:0,behavior:'smooth'});
 }
-function hideMyApps() {
-  document.getElementById('myAppsPage').classList.remove('show');
-  startBuilder();
-}
+
 function showUpdateManager() {
   generateUpdateJson(); // Init UI
-  document.getElementById('homePage').style.display = 'none';
-  document.getElementById('builderPage').style.display = 'none';
-  document.getElementById('myAppsPage').style.display = 'none';
-  document.getElementById('updateManagerPage').classList.add('show');
+  hideAllPages();
+  document.getElementById('updateManagerPage').style.display = 'block';
   window.scrollTo({top:0,behavior:'smooth'});
 }
-function hideUpdateManager() {
-  document.getElementById('updateManagerPage').classList.remove('show');
-  startBuilder();
-}
-function goHome() {
-  showHomePage();
-}
+
 function scrollToHow() {
   var el = document.getElementById('howItWorks');
   if (el) el.scrollIntoView({behavior:'smooth'});
@@ -1140,11 +1130,27 @@ function scrollToHow() {
 
 /* ── BUILDER NAVIGATION ── */
 function nextStep() {
-  if (currentStep===1) {
-    var appName=document.getElementById('appName').value.trim();
-    if (!appName) { alert('Please fill in App Name to continue.'); return; }
-    if (sourceMode==='url' && !document.getElementById('url').value.trim()) { alert('Please fill in Website URL to continue.'); return; }
-    if (sourceMode==='html' && !htmlFileContent) { alert('Please upload at least one file to continue.'); return; }
+  if (currentStep === 1) {
+    var appName = document.getElementById('appName').value.trim();
+    var hasError = false;
+    
+    if (!appName) { 
+      document.getElementById('appName').style.borderColor = '#f77'; 
+      hasError = true; 
+    }
+    if (sourceMode === 'url' && !document.getElementById('url').value.trim()) { 
+      document.getElementById('url').style.borderColor = '#f77'; 
+      hasError = true; 
+    }
+    if (sourceMode === 'html' && !htmlFileContent) { 
+      document.getElementById('multiFileDrop').style.borderColor = '#f77'; 
+      hasError = true; 
+    }
+    
+    if(hasError) {
+      alert("Please fill in the required fields (highlighted in red) to continue.");
+      return;
+    }
   }
   goStep(currentStep+1);
 }
@@ -1240,7 +1246,7 @@ function handleIcon(file) {
 
 function updatePreview() {
   var name = document.getElementById('appName').value.trim() || 'My App';
-  var tagline = document.getElementById('splashTaglineInput').value.trim() || document.getElementById('url').value.trim() || 'Your App';
+  var tagline = document.getElementById('splashTaglineInput').value.trim();
   var primary = document.getElementById('primaryHex').value || '#111111';
   var splashTextCol = document.getElementById('splashTextHex').value || '#ffffff';
   var statusBarCol = document.getElementById('statusBarHex').value || '#000000';
@@ -1251,7 +1257,7 @@ function updatePreview() {
   
   var tagEl = document.getElementById('splashTaglineStr');
   if(tagEl) {
-      tagEl.textContent = tagline;
+      tagEl.textContent = tagline || (urlVal || 'Your App');
       tagEl.style.color = splashTextCol;
       tagEl.style.opacity = '0.7';
   }
@@ -1382,132 +1388,226 @@ function setProgress(pct,lbl){
 }
 function sleep(ms){return new Promise(function(r){setTimeout(r,ms);})}
 
+/* ── MULTI-FILE UPLOAD ── */
+var TEXT_EXTS = /\.(html?|css|js|mjs|ts|jsx|tsx|json|xml|svg|txt|md|php|py|rb|java|kt|swift|csv)$/i;
+
+function getFileIcon(name) {
+  if (/\.html?$/i.test(name)) return '🌐';
+  if (/\.css$/i.test(name)) return '🎨';
+  if (/\.(js|mjs|ts|jsx|tsx)$/i.test(name)) return '⚡';
+  if (/\.(png|jpe?g|gif|webp|ico|svg)$/i.test(name)) return '🖼';
+  if (/\.(woff2?|ttf|otf|eot)$/i.test(name)) return '🔤';
+  if (/\.json$/i.test(name)) return '📋';
+  if (/\.(php|py|rb|java|kt|swift)$/i.test(name)) return '💻';
+  return '📄';
+}
+
+function readFileAsBase64(file) {
+  return new Promise(function(resolve) {
+    var r = new FileReader();
+    r.onload = function(e) { resolve(e.target.result.split(',')[1]); };
+    r.readAsDataURL(file);
+  });
+}
+function readFileAsText(file) {
+  return new Promise(function(resolve) {
+    var r = new FileReader();
+    r.onload = function(e) { resolve(e.target.result); };
+    r.readAsText(file);
+  });
+}
+
+async function handleMultiFiles(fileList) {
+  if (!fileList || !fileList.length) return;
+  var files = Array.from(fileList);
+  document.getElementById('multiFileDrop').style.borderColor = ''; // clear error state
+
+  for (var i = 0; i < files.length; i++) {
+    var file = files[i];
+    var name = file.name;
+    var isText = TEXT_EXTS.test(name);
+    var raw = null, b64 = null;
+    if (isText) {
+      raw = await readFileAsText(file);
+      b64 = btoa(unescape(encodeURIComponent(raw)));
+    } else {
+      b64 = await readFileAsBase64(file);
+    }
+    uploadedFiles[name] = { base64: b64, raw: raw, type: file.type, isText: isText };
+  }
+
+  var htmlFiles = Object.keys(uploadedFiles).filter(function(n){ return /\.html?$/i.test(n); });
+  if (htmlFiles.length > 0) {
+    entryHtmlFile = htmlFiles.indexOf('index.html') >= 0 ? 'index.html' : htmlFiles[0];
+    var epRow = document.getElementById('entryPointRow');
+    var epSelect = document.getElementById('entryPointSelect');
+    if (htmlFiles.length > 1) {
+      epRow.style.display = 'block';
+      epSelect.innerHTML = htmlFiles.map(function(f){
+        return '<option value="' + f + '"' + (f === entryHtmlFile ? ' selected' : '') + '>' + f + '</option>';
+      }).join('');
+      epSelect.onchange = function() {
+        entryHtmlFile = this.value;
+        var entry = uploadedFiles[entryHtmlFile];
+        if (entry && entry.raw) { htmlFileRawContent = entry.raw; htmlFileContent = entry.base64; updatePreview(); }
+      };
+    } else {
+      epRow.style.display = 'none';
+    }
+    var entry = uploadedFiles[entryHtmlFile];
+    if (entry) { htmlFileRawContent = entry.raw; htmlFileContent = entry.base64; }
+  } else {
+    htmlFileRawContent = null;
+    htmlFileContent = btoa('<!DOCTYPE html><html><head><meta charset="UTF-8"><title>App</title></head><body><p>No HTML entry point found.</p></body></html>');
+    entryHtmlFile = 'index.html';
+  }
+
+  var allNames = Object.keys(uploadedFiles);
+  document.getElementById('htmlFileName').textContent = entryHtmlFile + ' (entry)';
+  document.getElementById('fileCountLabel').textContent = allNames.length + ' file' + (allNames.length !== 1 ? 's' : '') + ' loaded';
+  var fileListEl = document.getElementById('fileList');
+  fileListEl.innerHTML = allNames.map(function(n) {
+    var sz = uploadedFiles[n].base64 ? Math.round(uploadedFiles[n].base64.length * 0.75 / 1024) : 0;
+    return '<div style="display:flex;align-items:center;gap:6px;padding:3px 6px;background:var(--surface);border-radius:5px;font-size:10px;color:var(--sub)">' +
+      '<span>' + getFileIcon(n) + '</span>' +
+      '<span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:var(--font-mono)">' + n + '</span>' +
+      '<span style="color:var(--muted);flex-shrink:0">' + sz + 'KB</span>' +
+    '</div>';
+  }).join('');
+
+  document.getElementById('htmlDropHint').style.display = 'none';
+  document.getElementById('htmlReady').style.display = 'flex';
+
+  updatePreview();
+}
+
 /* ══════════════ GENERATE APK PROJECT ══════════════ */
 async function generateProject() {
-  var urlVal=document.getElementById('url').value.trim();
-  var appName=document.getElementById('appName').value.trim();
+  try {
+    var urlVal=document.getElementById('url').value.trim();
+    var appName=document.getElementById('appName').value.trim();
 
-  if (sourceMode==='url') {
-    if (!urlVal||!appName){alert('Please fill in Website URL and App Name.');goStep(1);return;}
-  } else {
-    if (!htmlFileContent||!appName){alert('Please upload an HTML file and fill in App Name.');goStep(1);return;}
-  }
+    var btn=document.getElementById('genBtn');
+    btn.disabled=true;
+    document.getElementById('progWrap').style.display='block';
 
-  var btn=document.getElementById('genBtn');
-  btn.disabled=true;
-  document.getElementById('progWrap').style.display='block';
+    var pkg=updatePkg();
+    var version=document.getElementById('version').value.trim()||'1.0.0';
+    var desc=document.getElementById('desc').value.trim()||appName;
+    var devName=document.getElementById('devName').value.trim()||'Developer';
+    
+    // BRANDING
+    var primaryColor=document.getElementById('primaryHex').value||'#111111';
+    var accentColor=document.getElementById('accentHex').value||'#ffffff';
+    var splashTextColor=document.getElementById('splashTextHex').value||'#ffffff';
+    var statusBarColor=document.getElementById('statusBarHex').value||'#000000';
+    var splashTagline=document.getElementById('splashTaglineInput').value.trim();
+    
+    var uaStr=document.getElementById('uaString').value.trim();
+    var customJs=document.getElementById('customJsCode').value.trim();
+    var updateUrl=document.getElementById('updateCheckUrl').value.trim();
 
-  var pkg=updatePkg();
-  var version=document.getElementById('version').value.trim()||'1.0.0';
-  var desc=document.getElementById('desc').value.trim()||appName;
-  var devName=document.getElementById('devName').value.trim()||'Developer';
-  
-  // BRANDING
-  var primaryColor=document.getElementById('primaryHex').value||'#111111';
-  var accentColor=document.getElementById('accentHex').value||'#ffffff';
-  var splashTextColor=document.getElementById('splashTextHex').value||'#ffffff';
-  var statusBarColor=document.getElementById('statusBarHex').value||'#000000';
-  var splashTagline=document.getElementById('splashTaglineInput').value.trim();
-  
-  var uaStr=document.getElementById('uaString').value.trim();
-  var customJs=document.getElementById('customJsCode').value.trim();
-  var updateUrl=document.getElementById('updateCheckUrl').value.trim();
+    var effectiveUrl = sourceMode==='html' ? 'file:///android_asset/'+entryHtmlFile : urlVal;
 
-  var effectiveUrl = sourceMode==='html' ? 'file:///android_asset/'+entryHtmlFile : urlVal;
+    var opts={
+      perm_storage: activeFeatures.has('perm_storage'), perm_network: activeFeatures.has('perm_network'),
+      perm_contacts: activeFeatures.has('perm_contacts'), perm_sms: activeFeatures.has('perm_sms'),
+      perm_calendar:activeFeatures.has('perm_calendar'), perm_bluetooth:activeFeatures.has('perm_bluetooth'),
+      perm_device: activeFeatures.has('perm_device'), perm_accounts:activeFeatures.has('perm_accounts'),
+      perm_nfc: activeFeatures.has('perm_nfc'), perm_system: activeFeatures.has('perm_system'),
+      screenshot: activeFeatures.has('screenshot'), credentials: activeFeatures.has('credentials'),
+      pinlock: activeFeatures.has('pinlock'), rootexit: activeFeatures.has('rootexit'),
+      emublock: activeFeatures.has('emublock'), cleardata: activeFeatures.has('cleardata'),
+      sslonly: activeFeatures.has('sslonly'), devtools: activeFeatures.has('devtools'),
+      tapjack: activeFeatures.has('tapjack'), tracking: activeFeatures.has('tracking'),
+      fullscreen: activeFeatures.has('fullscreen'), swiperefresh:activeFeatures.has('swiperefresh'),
+      loadingbar: activeFeatures.has('loadingbar'), portrait: activeFeatures.has('portrait'),
+      wakelock: activeFeatures.has('wakelock'), offline: activeFeatures.has('offline'),
+      backbutton: activeFeatures.has('backbutton'), filechooser: activeFeatures.has('filechooser'),
+      location: activeFeatures.has('location'), camera: activeFeatures.has('camera'),
+      useragent: activeFeatures.has('useragent')&&!!uaStr, customjs: activeFeatures.has('customjs')&&!!customJs,
+      splash: activeFeatures.has('splash'), updatecheck: activeFeatures.has('updatecheck')&&!!updateUrl,
+      htmlMode: sourceMode==='html', uaString: uaStr, customJsCode:customJs, updateUrl: updateUrl,
+      appName: appName, devName: devName,
+      primaryColor: primaryColor, accentColor: accentColor, splashTextColor: splashTextColor,
+      statusBarColor: statusBarColor, splashTagline: splashTagline
+    };
 
-  var opts={
-    perm_storage: activeFeatures.has('perm_storage'), perm_network: activeFeatures.has('perm_network'),
-    perm_contacts: activeFeatures.has('perm_contacts'), perm_sms: activeFeatures.has('perm_sms'),
-    perm_calendar:activeFeatures.has('perm_calendar'), perm_bluetooth:activeFeatures.has('perm_bluetooth'),
-    perm_device: activeFeatures.has('perm_device'), perm_accounts:activeFeatures.has('perm_accounts'),
-    perm_nfc: activeFeatures.has('perm_nfc'), perm_system: activeFeatures.has('perm_system'),
-    screenshot: activeFeatures.has('screenshot'), credentials: activeFeatures.has('credentials'),
-    pinlock: activeFeatures.has('pinlock'), rootexit: activeFeatures.has('rootexit'),
-    emublock: activeFeatures.has('emublock'), cleardata: activeFeatures.has('cleardata'),
-    sslonly: activeFeatures.has('sslonly'), devtools: activeFeatures.has('devtools'),
-    tapjack: activeFeatures.has('tapjack'), tracking: activeFeatures.has('tracking'),
-    fullscreen: activeFeatures.has('fullscreen'), swiperefresh:activeFeatures.has('swiperefresh'),
-    loadingbar: activeFeatures.has('loadingbar'), portrait: activeFeatures.has('portrait'),
-    wakelock: activeFeatures.has('wakelock'), offline: activeFeatures.has('offline'),
-    backbutton: activeFeatures.has('backbutton'), filechooser: activeFeatures.has('filechooser'),
-    location: activeFeatures.has('location'), camera: activeFeatures.has('camera'),
-    useragent: activeFeatures.has('useragent')&&!!uaStr, customjs: activeFeatures.has('customjs')&&!!customJs,
-    splash: activeFeatures.has('splash'), updatecheck: activeFeatures.has('updatecheck')&&!!updateUrl,
-    htmlMode: sourceMode==='html', uaString: uaStr, customJsCode:customJs, updateUrl: updateUrl,
-    appName: appName, devName: devName,
-    primaryColor: primaryColor, accentColor: accentColor, splashTextColor: splashTextColor,
-    statusBarColor: statusBarColor, splashTagline: splashTagline
-  };
+    var root=appName.replace(/[^a-zA-Z0-9]/g,'')+'_Android/';
+    var pkgPath=pkg.replace(/\./g,'/');
+    var zip=new JSZip();
 
-  var root=appName.replace(/[^a-zA-Z0-9]/g,'')+'_Android/';
-  var pkgPath=pkg.replace(/\./g,'/');
-  var zip=new JSZip();
+    setProgress(10,'Writing AndroidManifest.xml...'); await sleep(150);
+    zip.file(root+'app/src/main/AndroidManifest.xml',buildManifest(pkg,appName,opts));
 
-  setProgress(10,'Writing AndroidManifest.xml...'); await sleep(150);
-  zip.file(root+'app/src/main/AndroidManifest.xml',buildManifest(pkg,appName,opts));
+    setProgress(22,'Writing MainActivity.java...'); await sleep(200);
+    zip.file(root+'app/src/main/java/'+pkgPath+'/MainActivity.java',buildMainActivity(pkg,effectiveUrl,opts));
 
-  setProgress(22,'Writing MainActivity.java...'); await sleep(200);
-  zip.file(root+'app/src/main/java/'+pkgPath+'/MainActivity.java',buildMainActivity(pkg,effectiveUrl,opts));
-
-  setProgress(36,'Writing layouts...'); await sleep(150);
-  zip.file(root+'app/src/main/res/layout/activity_main.xml',buildLayout(opts));
-  if (opts.splash){
-    zip.file(root+'app/src/main/res/layout/activity_splash.xml',buildSplashLayout(opts));
-    zip.file(root+'app/src/main/java/'+pkgPath+'/SplashActivity.java',buildSplashActivity(pkg));
-  }
-
-  if (opts.htmlMode) {
-    var allFileNames = Object.keys(uploadedFiles);
-    if (allFileNames.length > 0) {
-      allFileNames.forEach(function(fname) {
-        var f = uploadedFiles[fname];
-        zip.file(root+'app/src/main/assets/'+fname, f.base64, {base64:true});
-      });
-    } else if (htmlFileContent) {
-      zip.file(root+'app/src/main/assets/'+entryHtmlFile, htmlFileContent, {base64:true});
+    setProgress(36,'Writing layouts...'); await sleep(150);
+    zip.file(root+'app/src/main/res/layout/activity_main.xml',buildLayout(opts));
+    if (opts.splash){
+      zip.file(root+'app/src/main/res/layout/activity_splash.xml',buildSplashLayout(opts));
+      zip.file(root+'app/src/main/java/'+pkgPath+'/SplashActivity.java',buildSplashActivity(pkg));
     }
+
+    if (opts.htmlMode) {
+      var allFileNames = Object.keys(uploadedFiles);
+      if (allFileNames.length > 0) {
+        allFileNames.forEach(function(fname) {
+          var f = uploadedFiles[fname];
+          zip.file(root+'app/src/main/assets/'+fname, f.base64, {base64:true});
+        });
+      } else if (htmlFileContent) {
+        zip.file(root+'app/src/main/assets/'+entryHtmlFile, htmlFileContent, {base64:true});
+      }
+    }
+
+    setProgress(48,'Writing resources...'); await sleep(150);
+    zip.file(root+'app/src/main/res/values/strings.xml',buildStrings(appName,desc,devName,effectiveUrl,opts.splashTagline));
+    zip.file(root+'app/src/main/res/values/colors.xml',buildColors(opts));
+    zip.file(root+'app/src/main/res/values/themes.xml',buildThemes(appName,opts));
+    zip.file(root+'app/src/main/res/xml/network_security_config.xml',buildNetworkSecurity());
+
+    setProgress(60,'Writing Gradle files...'); await sleep(150);
+    zip.file(root+'app/build.gradle',buildAppGradle(pkg,version,opts));
+    zip.file(root+'build.gradle',buildRootGradle());
+    zip.file(root+'settings.gradle',buildSettings(appName));
+    zip.file(root+'gradle.properties','android.useAndroidX=true\nandroid.enableJetifier=true\norg.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8\norg.gradle.daemon=false\norg.gradle.parallel=true\n');
+    zip.file(root+'app/proguard-rules.pro','# '+appName+'\n-keepattributes *Annotation*\n-keep class '+pkg+'.** { *; }\n');
+    zip.file(root+'local.properties','# sdk.dir=/path/to/android/sdk\n');
+
+    setProgress(72,'Writing Gradle wrapper...'); await sleep(100);
+    zip.file(root+'gradle/wrapper/gradle-wrapper.properties',buildGradleWrapperProps());
+    zip.file(root+'gradlew',buildGradlew(),{unixPermissions:'0755'});
+    zip.file(root+'gradlew.bat',buildGradlewBat());
+
+    setProgress(82,'Writing GitHub Actions workflow...'); await sleep(150);
+    zip.file(root+'.github/workflows/build.yml',buildGithubAction(appName));
+
+    setProgress(92,'Adding icons & README...'); await sleep(100);
+    var whitePng='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI6QAAAABJRU5ErkJggg==';
+    var iconData=iconBase64||whitePng;
+    ['hdpi','xhdpi','xxhdpi','xxxhdpi','mdpi'].forEach(function(d){
+      zip.file(root+'app/src/main/res/mipmap-'+d+'/ic_launcher.png',iconData,{base64:true});
+      zip.file(root+'app/src/main/res/mipmap-'+d+'/ic_launcher_round.png',iconData,{base64:true});
+    });
+    zip.file(root+'README.md',buildReadme(appName,urlVal,pkg,version,devName,opts));
+
+    setProgress(98,'Packaging ZIP...'); await sleep(300);
+    zipBlob=await zip.generateAsync({type:'blob',compression:'DEFLATE',compressionOptions:{level:6}});
+    setProgress(100,'Done!'); await sleep(300);
+    document.getElementById('progWrap').style.display='none';
+    btn.disabled=false;
+    triggerDownload();
+    saveCurrentApp();
+    document.getElementById('outputArea').classList.add('show');
+    document.getElementById('outputArea').scrollIntoView({behavior:'smooth',block:'start'});
+  } catch (err) {
+    console.error(err);
+    alert('An error occurred during project generation. Please check the console.');
+    document.getElementById('genBtn').disabled = false;
+    document.getElementById('progWrap').style.display='none';
   }
-
-  setProgress(48,'Writing resources...'); await sleep(150);
-  zip.file(root+'app/src/main/res/values/strings.xml',buildStrings(appName,desc,devName,effectiveUrl,opts.splashTagline));
-  zip.file(root+'app/src/main/res/values/colors.xml',buildColors(opts));
-  zip.file(root+'app/src/main/res/values/themes.xml',buildThemes(appName,opts));
-  zip.file(root+'app/src/main/res/xml/network_security_config.xml',buildNetworkSecurity());
-
-  setProgress(60,'Writing Gradle files...'); await sleep(150);
-  zip.file(root+'app/build.gradle',buildAppGradle(pkg,version,opts));
-  zip.file(root+'build.gradle',buildRootGradle());
-  zip.file(root+'settings.gradle',buildSettings(appName));
-  zip.file(root+'gradle.properties','android.useAndroidX=true\nandroid.enableJetifier=true\norg.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8\norg.gradle.daemon=false\norg.gradle.parallel=true\n');
-  zip.file(root+'app/proguard-rules.pro','# '+appName+'\n-keepattributes *Annotation*\n-keep class '+pkg+'.** { *; }\n');
-  zip.file(root+'local.properties','# sdk.dir=/path/to/android/sdk\n');
-
-  setProgress(72,'Writing Gradle wrapper...'); await sleep(100);
-  zip.file(root+'gradle/wrapper/gradle-wrapper.properties',buildGradleWrapperProps());
-  zip.file(root+'gradlew',buildGradlew(),{unixPermissions:'0755'});
-  zip.file(root+'gradlew.bat',buildGradlewBat());
-
-  setProgress(82,'Writing GitHub Actions workflow...'); await sleep(150);
-  zip.file(root+'.github/workflows/build.yml',buildGithubAction(appName));
-
-  setProgress(92,'Adding icons & README...'); await sleep(100);
-  var whitePng='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI6QAAAABJRU5ErkJggg==';
-  var iconData=iconBase64||whitePng;
-  ['hdpi','xhdpi','xxhdpi','xxxhdpi','mdpi'].forEach(function(d){
-    zip.file(root+'app/src/main/res/mipmap-'+d+'/ic_launcher.png',iconData,{base64:true});
-    zip.file(root+'app/src/main/res/mipmap-'+d+'/ic_launcher_round.png',iconData,{base64:true});
-  });
-  zip.file(root+'README.md',buildReadme(appName,urlVal,pkg,version,devName,opts));
-
-  setProgress(98,'Packaging ZIP...'); await sleep(300);
-  zipBlob=await zip.generateAsync({type:'blob',compression:'DEFLATE',compressionOptions:{level:6}});
-  setProgress(100,'Done!'); await sleep(300);
-  document.getElementById('progWrap').style.display='none';
-  btn.disabled=false;
-  triggerDownload();
-  saveCurrentApp();
-  document.getElementById('outputArea').classList.add('show');
-  document.getElementById('outputArea').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
 function triggerDownload(){
@@ -1608,8 +1708,6 @@ function copyVersionJson() {
     setTimeout(function(){ btn.textContent = '📋 Copy JSON'; }, 2000);
   });
 }
-
-/* KEEP EXISTING HELPER FUNCTIONS UNCHANGED (Manifest, Activity, Apps Storage, iOS Gen) */
 
 function buildManifest(pkg,appName,opts){
   var safe=appName.replace(/[^a-zA-Z0-9]/g,'');
@@ -2152,106 +2250,102 @@ function buildLayout(opts){
   return lines.join('\n');
 }
 
-async function generateIos(){
-  var appName=document.getElementById('appName').value.trim()||'MyApp';
-  var urlVal=document.getElementById('url').value.trim()||'https://yourwebsite.com';
-  var primaryColor=document.getElementById('primaryHex').value||'#111111';
-  var statusBarColor=document.getElementById('statusBarHex').value||'#000000';
-  var version=document.getElementById('version').value.trim()||'1.0.0';
-  var devName=document.getElementById('devName').value.trim()||'Developer';
-  var safe=appName.replace(/[^a-zA-Z0-9]/g,'');
+/* ── MY APPS STORAGE ── */
+function loadApps() {
+  try { return JSON.parse(localStorage.getItem('pushtoapp_apps') || '[]'); } catch(e) { return []; }
+}
+function saveApps(apps) {
+  try { localStorage.setItem('pushtoapp_apps', JSON.stringify(apps)); } catch(e) {}
+}
+function saveCurrentApp() {
+  var apps = loadApps();
+  var appName = document.getElementById('appName').value.trim() || 'Untitled App';
+  var url = document.getElementById('url').value.trim() || '';
+  var version = document.getElementById('version').value.trim() || '1.0.0';
+  var devName = document.getElementById('devName').value.trim() || '';
+  var pkg = updatePkg();
+  var feats = Array.from(activeFeatures);
+  var icon = iconBase64 ? 'data:image/png;base64,' + iconBase64 : null;
+  var primary = document.getElementById('primaryHex').value || '#111111';
+  var accent = document.getElementById('accentHex').value || '#ffffff';
+  var id = 'app_' + Date.now();
+  apps.unshift({
+    id: id, name: appName, url: url, version: version,
+    devName: devName, pkg: pkg, features: feats,
+    icon: icon, primary: primary, accent: accent,
+    date: new Date().toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric'}),
+    sourceMode: sourceMode
+  });
+  if (apps.length > 50) apps = apps.slice(0, 50);
+  saveApps(apps);
+  updateAppsCount();
+}
+function updateAppsCount() {
+  var apps = loadApps();
+  ['hdrAppsCount','hpAppsCount'].forEach(function(id){
+    var badge = document.getElementById(id);
+    if (!badge) return;
+    if (apps.length > 0) {
+      badge.textContent = apps.length;
+      badge.style.display = 'inline-block';
+    } else {
+      badge.style.display = 'none';
+    }
+  });
+}
+function deleteApp(id) {
+  if (!confirm('Remove this app from your list?')) return;
+  var apps = loadApps().filter(function(a){ return a.id !== id; });
+  saveApps(apps);
+  updateAppsCount();
+  renderApps();
+}
 
-  var zip=new JSZip();
-  var root=safe+'_iOS_PWA/';
+function escHtml(s) {
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
 
-  var manifest={
-    name:appName,short_name:appName,
-    start_url:sourceMode==='html'?'./index.html':urlVal,
-    display:'standalone',
-    background_color:primaryColor,
-    theme_color:statusBarColor,
-    description:'Built with PushToApp',
-    icons:[{src:'icon.png',sizes:'512x512',type:'image/png'}]
-  };
-  zip.file(root+'manifest.json',JSON.stringify(manifest,null,2));
-
-  var sw='const CACHE="'+safe.toLowerCase()+'-v'+version+'";\n'+
-    'const OFFLINE_URL="offline.html";\n'+
-    'self.addEventListener("install",e=>{\n'+
-    '  e.waitUntil(caches.open(CACHE).then(c=>c.addAll(["./","./offline.html"])))\n'+
-    '});\n'+
-    'self.addEventListener("fetch",e=>{\n'+
-    '  e.respondWith(fetch(e.request).catch(()=>caches.match("offline.html")))\n'+
-    '});\n';
-  zip.file(root+'sw.js',sw);
-
-  var offlineHtml='<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+appName+'</title>'+
-    '<style>body{background:'+primaryColor+';color:#fff;font-family:-apple-system,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;margin:0;text-align:center;padding:20px}'+
-    '.icon{font-size:64px;margin-bottom:20px}.title{font-size:24px;font-weight:700;margin:0 0 10px}.msg{color:rgba(255,255,255,0.7);max-width:280px;line-height:1.6}'+
-    'button{margin-top:24px;padding:12px 32px;background:#fff;color:'+primaryColor+';border:none;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer}'+
-    '</style></head><body>'+
-    '<div class="icon">📱</div>'+
-    '<div class="title">Welcome to '+appName+'</div>'+
-    '<div class="msg">Connect to WiFi to access '+appName+'. Please check your internet connection and try again.</div>'+
-    '<button onclick="location.reload()">Retry</button></body></html>';
-  zip.file(root+'offline.html',offlineHtml);
-
-  var iconData=iconBase64||'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI6QAAAABJRU5ErkJggg==';
-  zip.file(root+'icon.png',iconData,{base64:true});
-
-  var mainHtml;
-  if (sourceMode==='html' && htmlFileRawContent) {
-    mainHtml=htmlFileRawContent;
-  } else {
-    mainHtml='<!DOCTYPE html><html><head>'+
-      '<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">'+
-      '<meta name="apple-mobile-web-app-capable" content="yes">'+
-      '<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">'+
-      '<meta name="apple-mobile-web-app-title" content="'+appName+'">'+
-      '<meta name="theme-color" content="'+statusBarColor+'">'+
-      '<link rel="apple-touch-icon" href="icon.png">'+
-      '<link rel="manifest" href="manifest.json">'+
-      '<title>'+appName+'</title>'+
-      '<style>*{margin:0;padding:0;box-sizing:border-box}html,body{height:100%}iframe{width:100%;height:100%;border:none;display:block}'+
-      'body{background:'+primaryColor+'}</style>'+
-      '<script>if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js");<\/script>'+
-      '</head><body>'+
-      '<iframe src="'+urlVal+'" allow="geolocation;camera;microphone;fullscreen" allowfullscreen></iframe>'+
-      '</body></html>';
+function renderApps() {
+  var apps = loadApps();
+  var wrap = document.getElementById('appsListWrap');
+  if (!wrap) return;
+  if (!apps.length) {
+    wrap.innerHTML = '<div class="apps-empty"><div class="apps-empty-icon">📭</div><div class="apps-empty-title">No apps yet</div><div class="apps-empty-sub">Once you generate an Android project,<br>it will appear here for easy access.</div><button class="apps-empty-btn" onclick="startBuilder()"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Build Your First App</button></div>';
+    return;
   }
-  zip.file(root+'index.html',mainHtml);
-
-  var readme='# '+appName+' — iOS PWA\n\nGenerated by PushToApp\n\n## Install on iPhone (FREE — No App Store needed!)\n\n'+
-    '### Method 1: Host & Add to Home Screen\n'+
-    '1. Host all files from this ZIP on any web server (Netlify, GitHub Pages, etc.)\n'+
-    '2. Open the hosted URL in Safari on iPhone\n'+
-    '3. Tap the **Share** button (box with arrow)\n'+
-    '4. Tap **"Add to Home Screen"**\n'+
-    '5. Tap **"Add"** — your app icon appears on the home screen!\n\n'+
-    '### Method 2: GitHub Pages (Free)\n'+
-    '1. Create a public GitHub repo\n'+
-    '2. Upload these files to the root\n'+
-    '3. Go to Settings → Pages → enable from main branch\n'+
-    '4. Open the GitHub Pages URL in Safari on iPhone\n'+
-    '5. Add to Home Screen\n\n'+
-    '## App Details\n'+
-    '| Field | Value |\n|-------|-------|\n'+
-    '| App | '+appName+' |\n'+
-    '| URL | '+urlVal+' |\n'+
-    '| Developer | '+devName+' |\n'+
-    '| Version | '+version+' |\n\n'+
-    '> Built with PushToApp\n';
-  zip.file(root+'README.md',readme);
-
-  var blob=await zip.generateAsync({type:'blob',compression:'DEFLATE',compressionOptions:{level:6}});
-  iosZipBlob=blob;
-  var name2=safe||'MyApp';
-  var a=document.createElement('a');
-  a.href=URL.createObjectURL(blob);
-  a.download=name2+'_iOS_PWA.zip';
-  document.body.appendChild(a);a.click();document.body.removeChild(a);
-  setTimeout(function(){URL.revokeObjectURL(a.href);},5000);
-  alert('✅ iOS PWA ZIP downloaded!\n\nHost the files online, then open in Safari → Share → Add to Home Screen. It\'s completely free!');
+  var html = '<div class="apps-grid">';
+  apps.forEach(function(app) {
+    var iconHtml = app.icon
+      ? '<img src="' + app.icon + '" alt="icon" style="width:100%;height:100%;object-fit:cover;border-radius:9px">'
+      : '<span style="font-size:22px">📱</span>';
+    var featHtml = (app.features || []).slice(0,4).map(function(f){
+      return '<span class="app-feat-tag">' + escHtml(FEAT_NAMES[f] || f) + '</span>';
+    }).join('');
+    if ((app.features||[]).length > 4) featHtml += '<span class="app-feat-tag">+' + (app.features.length-4) + '</span>';
+    var displayUrl = app.sourceMode === 'html' ? '📄 HTML File' : (app.url || '—');
+    html += '<div class="app-card">' +
+      '<div class="app-card-top">' +
+        '<div class="app-card-icon" style="background:' + escHtml(app.primary) + '">' + iconHtml + '</div>' +
+        '<div style="min-width:0">' +
+          '<div class="app-card-name">' + escHtml(app.name) + '</div>' +
+          '<div class="app-card-url" title="' + escHtml(displayUrl) + '">' + escHtml(displayUrl) + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="app-card-meta">' +
+        '<span class="app-meta-badge">v' + escHtml(app.version) + '</span>' +
+        '<span class="app-meta-badge" style="max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + escHtml(app.pkg) + '</span>' +
+      '</div>' +
+      (featHtml ? '<div class="app-card-feats">' + featHtml + '</div>' : '') +
+      '<div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px">' +
+        '<span class="app-card-date">📅 ' + escHtml(app.date) + '</span>' +
+      '</div>' +
+      '<div class="app-card-actions">' +
+        '<button class="app-action-btn app-action-del" onclick="deleteApp(\'' + app.id + '\')">🗑 Remove</button>' +
+      '</div>' +
+    '</div>';
+  });
+  html += '</div>';
+  wrap.innerHTML = html;
 }
 
 /* ── INIT ── */
@@ -2261,7 +2355,8 @@ window.onload=function(){
   updatePkg(); updatePreview();
   updateAppsCount();
   
-  document.getElementById('url').addEventListener('input', function() { updatePkg(); updatePreview(); });
+  document.getElementById('url').addEventListener('input', function() { updatePkg(); updatePreview(); this.style.borderColor=''; });
+  document.getElementById('appName').addEventListener('input', function() { updatePkg(); updatePreview(); this.style.borderColor=''; });
 
   function updateClock() {
     var now = new Date();
