@@ -105,6 +105,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-hei
   flex:1;padding:8px 12px;border-radius:8px;font-size:11px;font-weight:600;
   font-family:var(--font-body);cursor:pointer;transition:all 0.15s;text-align:center;
 }
+.app-action-dl{background:var(--white);color:var(--bg);border:none}
+.app-action-dl:hover{background:var(--accent)}
 .app-action-del{background:transparent;color:var(--muted);border:1px solid var(--border)}
 .app-action-del:hover{border-color:#e55;color:#f77}
 .apps-empty{
@@ -289,6 +291,7 @@ textarea{resize:vertical;min-height:68px;line-height:1.6}
   padding:10px 22px;background:transparent;border:1px solid var(--border);
   border-radius:8px;color:var(--sub);font-family:var(--font-body);
   font-size:13px;font-weight:500;cursor:pointer;transition:all 0.2s;
+  position:relative;z-index:20;
 }
 .btn-back:hover{border-color:var(--border-hi);color:var(--text)}
 .btn-next{
@@ -296,14 +299,18 @@ textarea{resize:vertical;min-height:68px;line-height:1.6}
   border-radius:8px;color:#fff;font-family:var(--font-body);
   font-size:13px;font-weight:600;cursor:pointer;transition:all 0.2s;
   display:flex;align-items:center;gap:8px;
+  box-shadow:none;
+  position:relative;z-index:20;
 }
 .btn-next:hover{background:var(--hi2);transform:translateY(-1px)}
-.btn-next:active{transform:none;}
+.btn-next:active{transform:none;box-shadow:none}
 .btn-gen{
   width:100%;padding:14px;
   background:var(--hi);border:none;border-radius:10px;
   color:#fff;font-family:var(--font-body);font-size:15px;font-weight:600;
   cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:9px;justify-content:center;
+  box-shadow:none;
+  position:relative;z-index:20;
 }
 .btn-gen:hover{background:var(--hi2);transform:translateY(-1px)}
 .btn-gen:disabled{opacity:0.3;cursor:not-allowed;transform:none}
@@ -366,6 +373,8 @@ textarea{resize:vertical;min-height:68px;line-height:1.6}
 .sli-h{font-size:12px;font-weight:700;color:var(--white);margin-bottom:3px;font-family:var(--font-display)}
 .sli-p{font-size:11px;color:var(--sub);line-height:1.7}
 .sli-p code{background:var(--surface);border:1px solid var(--border);padding:1px 5px;border-radius:3px;font-family:var(--font-mono);font-size:10px;color:var(--accent)}
+.sli-p a{color:var(--accent)}
+.sli-box{background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:8px 11px;margin-top:6px;font-family:var(--font-mono);font-size:10px;color:var(--sub);line-height:1.6}
 
 /* ── PHONE PREVIEW ── */
 .preview-col{position:relative}
@@ -384,9 +393,9 @@ textarea{resize:vertical;min-height:68px;line-height:1.6}
   box-shadow:inset 0 0 0 1px rgba(255,255,255,0.06),0 32px 80px rgba(0,0,0,0.85),0 0 0 1px rgba(0,0,0,0.5);
   position:relative;
 }
-.phone-shell::before{content:'';position:absolute;right:-4px;top:110px;width:4px;height:44px;background:#242424;border-radius:0 3px 3px 0;}
-.phone-shell::after{content:'';position:absolute;left:-4px;top:90px;width:4px;height:32px;background:#242424;border-radius:3px 0 0 3px;}
-.phone-vol2{position:absolute;left:-4px;top:132px;width:4px;height:32px;background:#242424;border-radius:3px 0 0 3px;}
+.phone-shell::before{content:'';position:absolute;right:-4px;top:110px;width:4px;height:44px;background:#242424;border-radius:0 3px 3px 0;box-shadow:inset -1px 0 0 rgba(255,255,255,0.05);}
+.phone-shell::after{content:'';position:absolute;left:-4px;top:90px;width:4px;height:32px;background:#242424;border-radius:3px 0 0 3px;box-shadow:inset 1px 0 0 rgba(255,255,255,0.05);}
+.phone-vol2{position:absolute;left:-4px;top:132px;width:4px;height:32px;background:#242424;border-radius:3px 0 0 3px;box-shadow:inset 1px 0 0 rgba(255,255,255,0.05);}
 .phone-notch{position:absolute;top:18px;left:50%;transform:translateX(-50%);width:52px;height:6px;background:#0f0f0f;border-radius:4px;z-index:10;}
 .phone-cam{position:absolute;top:19px;right:71px;width:6px;height:6px;background:#111;border-radius:50%;z-index:10;box-shadow:inset 0 0 0 1.5px #0a0a0a, 0 0 0 1px #1f1f1f;}
 .phone-screen{width:100%;height:100%;border-radius:30px;overflow:hidden;background:#0f0f0f;position:relative;transition:background 0.5s;}
@@ -415,7 +424,7 @@ textarea{resize:vertical;min-height:68px;line-height:1.6}
 .home-icon-img{width:64px;height:64px;border-radius:16px;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.1);}
 .home-icon-img img{width:100%;height:100%;object-fit:cover;display:none}
 .home-icon-img svg{flex-shrink:0}
-.home-icon-lbl{font-size:10px;font-family:var(--font-body);font-weight:600;color:rgba(255,255,255,0.95);text-align:center;max-width:72px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.home-icon-lbl{font-size:10px;font-family:var(--font-body);font-weight:600;color:rgba(255,255,255,0.95);text-align:center;max-width:72px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-shadow:0 1px 4px rgba(0,0,0,0.8);}
 
 .web-view{position:absolute;inset:0;z-index:15;display:flex;flex-direction:column;background:#f5f5f5;border-radius:30px;overflow:hidden;opacity:0;pointer-events:none;transition:opacity 0.35s;}
 .web-view.show{opacity:1;pointer-events:all}
@@ -437,14 +446,14 @@ textarea{resize:vertical;min-height:68px;line-height:1.6}
 
 /* ── HOMEPAGE ── */
 #homePage{min-height:100vh;background:var(--bg);display:flex;flex-direction:column;}
-.hp-nav{height:56px;padding:0 28px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);background:var(--bg);}
-.hp-hero{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:90px 24px 70px;position:relative;overflow:hidden;}
+.hp-nav{height:56px;padding:0 28px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);background:var(--bg);position:relative;z-index:999;}
+.hp-hero{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:90px 24px 70px;position:relative;}
 .hp-badge{display:inline-flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--border-hi);border-radius:20px;padding:5px 14px;font-size:11px;font-family:var(--font-mono);color:var(--sub);letter-spacing:0.5px;margin-bottom:28px;}
 .hp-badge-dot{width:6px;height:6px;border-radius:50%;background:#34d399;flex-shrink:0}
-.hp-title{font-size:clamp(34px,5.5vw,62px);font-weight:900;letter-spacing:-2px;color:var(--white);line-height:1.05;margin-bottom:22px;max-width:720px;}
+.hp-title{font-size:clamp(34px,5.5vw,62px);font-weight:900;letter-spacing:-2px;color:var(--white);line-height:1.05;margin-bottom:22px;max-width:720px;position:relative;z-index:2;}
 .hp-title-grad{background:linear-gradient(135deg,#fff 20%,#777);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.hp-sub{font-size:16px;color:var(--sub);line-height:1.75;max-width:500px;margin-bottom:44px;font-weight:400;}
-.hp-cta-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:center;}
+.hp-sub{font-size:16px;color:var(--sub);line-height:1.75;max-width:500px;margin-bottom:44px;font-weight:400;position:relative;z-index:2;}
+.hp-cta-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:center;position:relative;z-index:10;}
 .hp-cta-primary{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;background:var(--white);color:var(--bg);border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:var(--font-display);transition:all 0.2s;}
 .hp-cta-primary:hover{background:var(--accent);transform:translateY(-1px)}
 .hp-cta-secondary{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;background:transparent;color:var(--sub);border:1px solid var(--border-hi);border-radius:10px;font-size:14px;font-weight:500;cursor:pointer;font-family:var(--font-body);transition:all 0.2s;}
@@ -459,14 +468,15 @@ textarea{resize:vertical;min-height:68px;line-height:1.6}
 .hp-section-title{font-size:30px;font-weight:800;color:var(--white);text-align:center;letter-spacing:-0.7px;margin-bottom:8px;}
 .hp-section-sub{font-size:13px;color:var(--sub);text-align:center;margin-bottom:44px;line-height:1.7;max-width:440px;margin-left:auto;margin-right:auto;}
 .hp-steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:2px;background:var(--border);border-radius:12px;overflow:hidden;border:1px solid var(--border);}
-.hp-step-card{background:var(--card);padding:26px 22px;display:flex;flex-direction:column;gap:12px;}
+.hp-step-card{background:var(--card);padding:26px 22px;display:flex;flex-direction:column;gap:12px;position:relative;}
 .hp-step-num{width:30px;height:30px;border-radius:7px;background:var(--surface);border:1px solid var(--border-hi);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--sub);flex-shrink:0;}
 .hp-step-icon{font-size:24px;line-height:1}
 .hp-step-title{font-size:13px;font-weight:700;color:var(--white);line-height:1.3}
 .hp-step-desc{font-size:11.5px;color:var(--sub);line-height:1.7}
 .hp-step-tag{display:inline-block;margin-top:2px;font-size:9px;font-family:var(--font-mono);padding:2px 7px;border-radius:4px;background:var(--surface);border:1px solid var(--border);color:var(--muted);}
 .hp-feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;}
-.hp-feat-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;display:flex;gap:12px;align-items:flex-start;}
+.hp-feat-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;display:flex;gap:12px;align-items:flex-start;transition:border-color 0.15s,background 0.15s;}
+.hp-feat-card:hover{border-color:var(--border-hi);background:var(--card2)}
 .hp-feat-em{font-size:18px;flex-shrink:0;margin-top:1px;line-height:1}
 .hp-feat-title{font-size:12px;font-weight:700;color:var(--white);margin-bottom:3px}
 .hp-feat-desc{font-size:11px;color:var(--sub);line-height:1.6}
@@ -2250,102 +2260,106 @@ function buildLayout(opts){
   return lines.join('\n');
 }
 
-/* ── MY APPS STORAGE ── */
-function loadApps() {
-  try { return JSON.parse(localStorage.getItem('pushtoapp_apps') || '[]'); } catch(e) { return []; }
-}
-function saveApps(apps) {
-  try { localStorage.setItem('pushtoapp_apps', JSON.stringify(apps)); } catch(e) {}
-}
-function saveCurrentApp() {
-  var apps = loadApps();
-  var appName = document.getElementById('appName').value.trim() || 'Untitled App';
-  var url = document.getElementById('url').value.trim() || '';
-  var version = document.getElementById('version').value.trim() || '1.0.0';
-  var devName = document.getElementById('devName').value.trim() || '';
-  var pkg = updatePkg();
-  var feats = Array.from(activeFeatures);
-  var icon = iconBase64 ? 'data:image/png;base64,' + iconBase64 : null;
-  var primary = document.getElementById('primaryHex').value || '#111111';
-  var accent = document.getElementById('accentHex').value || '#ffffff';
-  var id = 'app_' + Date.now();
-  apps.unshift({
-    id: id, name: appName, url: url, version: version,
-    devName: devName, pkg: pkg, features: feats,
-    icon: icon, primary: primary, accent: accent,
-    date: new Date().toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric'}),
-    sourceMode: sourceMode
-  });
-  if (apps.length > 50) apps = apps.slice(0, 50);
-  saveApps(apps);
-  updateAppsCount();
-}
-function updateAppsCount() {
-  var apps = loadApps();
-  ['hdrAppsCount','hpAppsCount'].forEach(function(id){
-    var badge = document.getElementById(id);
-    if (!badge) return;
-    if (apps.length > 0) {
-      badge.textContent = apps.length;
-      badge.style.display = 'inline-block';
-    } else {
-      badge.style.display = 'none';
-    }
-  });
-}
-function deleteApp(id) {
-  if (!confirm('Remove this app from your list?')) return;
-  var apps = loadApps().filter(function(a){ return a.id !== id; });
-  saveApps(apps);
-  updateAppsCount();
-  renderApps();
-}
+async function generateIos(){
+  var appName=document.getElementById('appName').value.trim()||'MyApp';
+  var urlVal=document.getElementById('url').value.trim()||'https://yourwebsite.com';
+  var primaryColor=document.getElementById('primaryHex').value||'#111111';
+  var statusBarColor=document.getElementById('statusBarHex').value||'#000000';
+  var version=document.getElementById('version').value.trim()||'1.0.0';
+  var devName=document.getElementById('devName').value.trim()||'Developer';
+  var safe=appName.replace(/[^a-zA-Z0-9]/g,'');
 
-function escHtml(s) {
-  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
+  var zip=new JSZip();
+  var root=safe+'_iOS_PWA/';
 
-function renderApps() {
-  var apps = loadApps();
-  var wrap = document.getElementById('appsListWrap');
-  if (!wrap) return;
-  if (!apps.length) {
-    wrap.innerHTML = '<div class="apps-empty"><div class="apps-empty-icon">📭</div><div class="apps-empty-title">No apps yet</div><div class="apps-empty-sub">Once you generate an Android project,<br>it will appear here for easy access.</div><button class="apps-empty-btn" onclick="startBuilder()"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Build Your First App</button></div>';
-    return;
+  var manifest={
+    name:appName,short_name:appName,
+    start_url:sourceMode==='html'?'./index.html':urlVal,
+    display:'standalone',
+    background_color:primaryColor,
+    theme_color:statusBarColor,
+    description:'Built with PushToApp',
+    icons:[{src:'icon.png',sizes:'512x512',type:'image/png'}]
+  };
+  zip.file(root+'manifest.json',JSON.stringify(manifest,null,2));
+
+  var sw='const CACHE="'+safe.toLowerCase()+'-v'+version+'";\n'+
+    'const OFFLINE_URL="offline.html";\n'+
+    'self.addEventListener("install",e=>{\n'+
+    '  e.waitUntil(caches.open(CACHE).then(c=>c.addAll(["./","./offline.html"])))\n'+
+    '});\n'+
+    'self.addEventListener("fetch",e=>{\n'+
+    '  e.respondWith(fetch(e.request).catch(()=>caches.match("offline.html")))\n'+
+    '});\n';
+  zip.file(root+'sw.js',sw);
+
+  var offlineHtml='<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+appName+'</title>'+
+    '<style>body{background:'+primaryColor+';color:#fff;font-family:-apple-system,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;margin:0;text-align:center;padding:20px}'+
+    '.icon{font-size:64px;margin-bottom:20px}.title{font-size:24px;font-weight:700;margin:0 0 10px}.msg{color:rgba(255,255,255,0.7);max-width:280px;line-height:1.6}'+
+    'button{margin-top:24px;padding:12px 32px;background:#fff;color:'+primaryColor+';border:none;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer}'+
+    '</style></head><body>'+
+    '<div class="icon">📱</div>'+
+    '<div class="title">Welcome to '+appName+'</div>'+
+    '<div class="msg">Connect to WiFi to access '+appName+'. Please check your internet connection and try again.</div>'+
+    '<button onclick="location.reload()">Retry</button></body></html>';
+  zip.file(root+'offline.html',offlineHtml);
+
+  var iconData=iconBase64||'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI6QAAAABJRU5ErkJggg==';
+  zip.file(root+'icon.png',iconData,{base64:true});
+
+  var mainHtml;
+  if (sourceMode==='html' && htmlFileRawContent) {
+    mainHtml=htmlFileRawContent;
+  } else {
+    mainHtml='<!DOCTYPE html><html><head>'+
+      '<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">'+
+      '<meta name="apple-mobile-web-app-capable" content="yes">'+
+      '<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">'+
+      '<meta name="apple-mobile-web-app-title" content="'+appName+'">'+
+      '<meta name="theme-color" content="'+statusBarColor+'">'+
+      '<link rel="apple-touch-icon" href="icon.png">'+
+      '<link rel="manifest" href="manifest.json">'+
+      '<title>'+appName+'</title>'+
+      '<style>*{margin:0;padding:0;box-sizing:border-box}html,body{height:100%}iframe{width:100%;height:100%;border:none;display:block}'+
+      'body{background:'+primaryColor+'}</style>'+
+      '<script>if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js");<\/script>'+
+      '</head><body>'+
+      '<iframe src="'+urlVal+'" allow="geolocation;camera;microphone;fullscreen" allowfullscreen></iframe>'+
+      '</body></html>';
   }
-  var html = '<div class="apps-grid">';
-  apps.forEach(function(app) {
-    var iconHtml = app.icon
-      ? '<img src="' + app.icon + '" alt="icon" style="width:100%;height:100%;object-fit:cover;border-radius:9px">'
-      : '<span style="font-size:22px">📱</span>';
-    var featHtml = (app.features || []).slice(0,4).map(function(f){
-      return '<span class="app-feat-tag">' + escHtml(FEAT_NAMES[f] || f) + '</span>';
-    }).join('');
-    if ((app.features||[]).length > 4) featHtml += '<span class="app-feat-tag">+' + (app.features.length-4) + '</span>';
-    var displayUrl = app.sourceMode === 'html' ? '📄 HTML File' : (app.url || '—');
-    html += '<div class="app-card">' +
-      '<div class="app-card-top">' +
-        '<div class="app-card-icon" style="background:' + escHtml(app.primary) + '">' + iconHtml + '</div>' +
-        '<div style="min-width:0">' +
-          '<div class="app-card-name">' + escHtml(app.name) + '</div>' +
-          '<div class="app-card-url" title="' + escHtml(displayUrl) + '">' + escHtml(displayUrl) + '</div>' +
-        '</div>' +
-      '</div>' +
-      '<div class="app-card-meta">' +
-        '<span class="app-meta-badge">v' + escHtml(app.version) + '</span>' +
-        '<span class="app-meta-badge" style="max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + escHtml(app.pkg) + '</span>' +
-      '</div>' +
-      (featHtml ? '<div class="app-card-feats">' + featHtml + '</div>' : '') +
-      '<div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px">' +
-        '<span class="app-card-date">📅 ' + escHtml(app.date) + '</span>' +
-      '</div>' +
-      '<div class="app-card-actions">' +
-        '<button class="app-action-btn app-action-del" onclick="deleteApp(\'' + app.id + '\')">🗑 Remove</button>' +
-      '</div>' +
-    '</div>';
-  });
-  html += '</div>';
-  wrap.innerHTML = html;
+  zip.file(root+'index.html',mainHtml);
+
+  var readme='# '+appName+' — iOS PWA\n\nGenerated by PushToApp\n\n## Install on iPhone (FREE — No App Store needed!)\n\n'+
+    '### Method 1: Host & Add to Home Screen\n'+
+    '1. Host all files from this ZIP on any web server (Netlify, GitHub Pages, etc.)\n'+
+    '2. Open the hosted URL in Safari on iPhone\n'+
+    '3. Tap the **Share** button (box with arrow)\n'+
+    '4. Tap **"Add to Home Screen"**\n'+
+    '5. Tap **"Add"** — your app icon appears on the home screen!\n\n'+
+    '### Method 2: GitHub Pages (Free)\n'+
+    '1. Create a public GitHub repo\n'+
+    '2. Upload these files to the root\n'+
+    '3. Go to Settings → Pages → enable from main branch\n'+
+    '4. Open the GitHub Pages URL in Safari on iPhone\n'+
+    '5. Add to Home Screen\n\n'+
+    '## App Details\n'+
+    '| Field | Value |\n|-------|-------|\n'+
+    '| App | '+appName+' |\n'+
+    '| URL | '+urlVal+' |\n'+
+    '| Developer | '+devName+' |\n'+
+    '| Version | '+version+' |\n\n'+
+    '> Built with PushToApp\n';
+  zip.file(root+'README.md',readme);
+
+  var blob=await zip.generateAsync({type:'blob',compression:'DEFLATE',compressionOptions:{level:6}});
+  iosZipBlob=blob;
+  var name2=safe||'MyApp';
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download=name2+'_iOS_PWA.zip';
+  document.body.appendChild(a);a.click();document.body.removeChild(a);
+  setTimeout(function(){URL.revokeObjectURL(a.href);},5000);
+  alert('✅ iOS PWA ZIP downloaded!\n\nHost the files online, then open in Safari → Share → Add to Home Screen. It\'s completely free!');
 }
 
 /* ── INIT ── */
